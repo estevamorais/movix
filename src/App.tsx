@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import type { RootState } from './store/store'
@@ -13,14 +13,20 @@ function App() {
   const { url } = useSelector((state: RootState) => state.home)
 
   useEffect(() => {
-    apiTesting()
+    fetchApiConfig()
   }, [])
 
-  const apiTesting = () => {
-    fetchDataFromApi('/movie/popular').then((res) => {
-      dispatch(getApiConfiguration(res))
+  const fetchApiConfig = useCallback(() => {
+    fetchDataFromApi('/configuration').then((res) => {
+      const url = {
+        backdrop: res.images.secure_base_url + 'original',
+        poster: res.images.secure_base_url + 'original',
+        profile: res.images.secure_base_url + 'original',
+      }
+
+      dispatch(getApiConfiguration(url))
     })
-  }
+  }, [dispatch])
 
   return (
     <div className="App">

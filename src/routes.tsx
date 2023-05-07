@@ -12,7 +12,7 @@ import SearchResults from './pages/searchResults/SearchResults'
 const Routes = () => {
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <RoutesDOM>
         <Route path="/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
@@ -20,7 +20,7 @@ const Routes = () => {
         <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="*" element={<NotFound />} />
       </RoutesDOM>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   )
 }

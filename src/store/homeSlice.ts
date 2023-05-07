@@ -2,20 +2,18 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export interface HomeState {
   url: {
-    page: number
-    results: any[]
-    total_pages: number
-    total_results: number
+    backdrop: string
+    poster: string
+    profile: string
   }
   genres: any
 }
 
 const initialState: HomeState = {
   url: {
-    page: 0,
-    results: [],
-    total_pages: 0,
-    total_results: 0,
+    backdrop: '',
+    poster: '',
+    profile: '',
   },
   genres: {},
 }
