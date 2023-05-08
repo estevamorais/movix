@@ -12,7 +12,7 @@ import SearchResults from './pages/searchResults/SearchResults'
 const Routes = () => {
   return (
     <BrowserRouter>
-      {/* <Header /> */}
+      <Header />
       <RoutesDOM>
         <Route path="/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
